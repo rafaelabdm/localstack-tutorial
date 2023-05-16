@@ -1,5 +1,5 @@
 <h1 align="center">
-	✏️ Localstack Tutorial
+	✏️ Localstack Tutorial Hello World
 </h1>
 
 <p align="center"><br>
