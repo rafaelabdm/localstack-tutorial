@@ -24,6 +24,7 @@ Você pode descobrir mais no link: https://docs.localstack.cloud/getting-started
 
 <h2>🔨 Passo a Passo:</h2>
 
+<h3>DOCKER RUN</h3>
 <p>
   Depois de tudo instalado, precisamos subir o container do localstack para receber nossas requisições. <br>
   Inicializamos o Docker Descktop, para ele rodar nosso Linux Kernel <br>
@@ -69,6 +70,8 @@ CONTAINER ID   IMAGE                   COMMAND                  CREATED         
 10197c3caa8a   localstack/localstack   "docker-entrypoint.sh"   About an hour ago   Up 20 seconds (healthy)   127.0.0.1:4510-4559->4510-4559/tcp, 127.0.0.1:4566->4566/tcp, 5678/tcp   localstack_main
 ```
 
+
+<h3>INIT</h3>
 <p>
   Após subirmos nosso container com sucesso, vamos para nosso app. Agora entra o SAM CLI para Localstack.<br>
   O SAMLOCAL CLI é igual ao SAM CLI, mas ele redireciona nossas requisições para o localstack que acabamos de subir. <br>
@@ -168,7 +171,11 @@ Commands you can use next
 
 <p><br>
   Isso deve ter gerado uma pasta com o nome do projeto. Entre na pasta para executar os próximos passos.<br>
-  <TT>cd tutorial-sam # no meu caso</TT><br>
+  <TT>cd tutorial-sam</TT>, no meu caso<br>
+</p>
+
+<h3>BUILD</h3>
+<p>
   Já dentro da pasta faremos uma edição no arquivo <TT>template.yaml</TT> <br>
   Dentro de Outputs:, vamos alterar a variável Value: da nossa HelloWorldApi:<br><br>
   
@@ -224,6 +231,7 @@ Commands you can use next
 [*] Deploy: sam deploy --guided
 ```
 
+<h3>DEPLOY</h3>
 <p>
   Agora é a hora do deploy! É só digitar <TT>samlocal deploy --guided</TT> e seguir os passos:<br>
 </p>
@@ -256,6 +264,10 @@ Configuring SAM deploy
 ```
 
 <p>
+<SUB>🛑 Caso apareça um ERRO falando algo sobre região: apenas rode o comando <TT>aws confiure</TT>, preencha o campo region 
+com <TT>us-east-1</TT> e o campo seguinte com <TT>json</TT>. Os dois campos anteriores podem ser preenchidos com 
+qualquer nome. </SUB>
+	
   Se tudo der certo o deploy vai acontecer com sucesso, e ele apresentará os caminhos para acessar sua HelloWorldApi 
   no campo OUTPUTS:<br>  
 </p>
@@ -277,4 +289,4 @@ Value               https://6i3s7f0acz.execute-api.localhost.localstack.cloud:45
   Agora é só acessar a URL fornecida a cima e tá lá! A mensagem mais amada de todos os programadores:<br>
 </p>
 
-![image](https://github.com/rafaelabdm/localstack-tutorial/assets/102771790/82462a54-714b-44b5-8871-448f01558042)
+![Sem título](https://github.com/rafaelabdm/localstack-tutorial/assets/102771790/b8252b44-a798-401f-bfa9-18d29f8ddd0d)
